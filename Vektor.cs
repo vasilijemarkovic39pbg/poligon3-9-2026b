@@ -9,7 +9,7 @@ namespace poligon3_9_2026b
 {
     internal class Vektor
     {
-        Tacka pocetak, kraj;
+        public Tacka pocetak, kraj;
         public Vektor(Tacka A, Tacka B) { pocetak = A; kraj = B; }
         public Tacka Centriraj()
         {
