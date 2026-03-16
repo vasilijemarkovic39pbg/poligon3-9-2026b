@@ -21,6 +21,7 @@ namespace poligon_3_9b_2026b
             Tacka C = AB.Centriraj();
             Console.WriteLine(C.d());
             Console.ReadLine();
+
         }
     }
 }
