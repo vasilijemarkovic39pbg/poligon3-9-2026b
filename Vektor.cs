@@ -17,13 +17,13 @@ namespace poligon3_9_2026b
             return Nova;
         }
 
-        public double SP(Vektor a, Vektor b)
+        public static double SP(Vektor a, Vektor b)
         {
             Tacka aC = a.Centriraj();
             Tacka bC = b.Centriraj();
             return aC.x*bC.x + aC.y*bC.y;
         }
-        public double VP(Vektor a, Vektor b)
+        public static double VP(Vektor a, Vektor b)
         {
             Tacka aC = a.Centriraj();
             Tacka bC = b.Centriraj();
