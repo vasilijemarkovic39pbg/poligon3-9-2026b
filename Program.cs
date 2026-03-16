@@ -28,6 +28,7 @@ namespace poligon_3_9b_2026b
             Vektor OA = new Vektor(O, A);
             Vektor OB = new Vektor(O, B);
             Console.WriteLine(Vektor.SP(OA, OB));
+            Console.WriteLine(Vektor.VP(OA, OB));
             Console.ReadLine();
         }
     }
