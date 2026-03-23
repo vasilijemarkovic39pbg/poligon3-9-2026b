@@ -12,6 +12,7 @@ namespace poligon_3_9b_2026b
         static void Main(string[] args)
         {
             // Vasilije Markovic
+            //test da li radi
 
             //Tacka prva = new Tacka();
             //Console.WriteLine(prva.d());
