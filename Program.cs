@@ -21,7 +21,6 @@ namespace poligon_3_9b_2026b
             //Vektor AB = new Vektor(A, B);
             //Tacka C = AB.Centriraj();
             //Console.WriteLine(C.d());
-            //Console.ReadLine();
 
             //Tacka A = new Tacka(3, 2);
             //Tacka B = new Tacka(-2, 3);
@@ -30,9 +29,10 @@ namespace poligon_3_9b_2026b
             //Vektor OB = new Vektor(O, B);
             //Console.WriteLine(Vektor.SP(OA, OB));
             //Console.WriteLine(Vektor.VP(OA, OB));
-            //Console.ReadLine();
 
-
+            Poligon prvi = Poligon.unos();
+            prvi.snimi();
+            Console.ReadLine();
         }
     }
 }
