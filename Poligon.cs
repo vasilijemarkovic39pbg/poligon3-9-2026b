@@ -34,7 +34,11 @@ namespace poligon3_9_2026b
         }
         public void stampa()
         {
-            Console.WriteLine();
+            Console.WriteLine("Poligon ima {0} temena. Koordinate temena su: ", broj_temena);
+            for (int i = 0; i < broj_temena; i++)
+            {
+                Console.WriteLine("A[{0}] = ({1},{2})", i+1, teme[i].x, teme[i].y);
+            }
         }
         public void snimi()
         {

@@ -32,6 +32,7 @@ namespace poligon_3_9b_2026b
 
             Poligon prvi = Poligon.unos();
             prvi.snimi();
+            prvi.stampa();
             Console.ReadLine();
         }
     }
