@@ -1,55 +1,56 @@
-﻿using poligon_3_9b_2026b;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using poligon_3_9b_2026b;
+using poligon3_9_2026b;
 
 namespace poligon3_9_2026b
 {
     internal class Poligon
     {
-        public int broj_temena;
+        public int br_temena;
         public Tacka[] teme;
         public Poligon(int n)
         {
-            broj_temena = n;
+            br_temena = n;
             teme = new Tacka[n];
         }
-        public static Poligon unos() 
+        public static Poligon unos()
         {
-            Console.WriteLine("Koliko temena unosite?");
+            Console.WriteLine("Koliko temena?");
             int n = Convert.ToInt32(Console.ReadLine());
             Poligon novi = new Poligon(n);
             for (int i = 0; i < n; i++)
             {
                 novi.teme[i] = new Tacka();
-                Console.Write("A[{0}].x = ", i+1);
-                novi.teme[i].x = Convert.ToInt32(Console.ReadLine());
-                Console.Write("A[{0}].y = ", i+1);
-                novi.teme[i].y = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("T[{0}].x =", i + 1);
+                novi.teme[i].x = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("y koord tacke T({0})=", i + 1);
+                novi.teme[i].y = Convert.ToDouble(Console.ReadLine());
             }
             return novi;
         }
         public void stampa()
         {
-            Console.WriteLine("Poligon ima {0} temena. Koordinate temena su: ", broj_temena);
-            for (int i = 0; i < broj_temena; i++)
+            Console.WriteLine("Poligon ima {0} temena", br_temena);
+            for (int i = 0; i < br_temena; i++)
             {
-                Console.WriteLine("A[{0}] = ({1},{2})", i+1, teme[i].x, teme[i].y);
+                Console.WriteLine("Koordinate {0}. tacke su x={1} i y={2}", i + 1, teme[i].x, teme[i].y);
             }
         }
         public void snimi()
         {
-            StreamWriter sw = new StreamWriter("poligon.txt");
-            sw.WriteLine(broj_temena);
-            for ( int i = 0; i < broj_temena; i++)
+            StreamWriter izlaz = new StreamWriter("poligon.txt");
+            izlaz.WriteLine(br_temena);
+            for (int i = 0; i < br_temena; i++)
             {
-                sw.WriteLine(teme[i].x);
-                sw.WriteLine(teme[i].y);
+                izlaz.WriteLine(teme[i].x);
+                izlaz.WriteLine(teme[i].y);
             }
-            sw.Close();
+            izlaz.Close();
         }
         public static Poligon ucitaj()
         {
@@ -63,6 +64,52 @@ namespace poligon3_9_2026b
                 novi.teme[i].y = Convert.ToDouble(ulaz.ReadLine());
             }
             return novi;
+        }
+        public double obim()
+        {
+            Vektor a;
+            double obim = 0;
+            for (int i = 0; i < br_temena - 1; i++)
+            {
+                a = new Vektor(teme[i], teme[i + 1]);
+                obim += a.duzina();
+            }
+            a = new Vektor(teme[br_temena - 1], teme[0]);
+            obim += a.duzina();
+            return obim;
+        }
+        public bool prost()
+        {
+            for (int i = 0; i < br_temena - 1; i++)
+            {
+                for (int j = i + 1; j < br_temena; j++)
+                {
+                    if (Tacka.jednake(teme[i], teme[j]))
+                    {
+                        return false;
+                    }
+                }
+            }
+            Vektor[] stranica = new Vektor[br_temena];
+            for (int i = 0; i < br_temena - 1; i++)
+            {
+                stranica[i] = new Vektor(teme[i], teme[i + 1]);
+            }
+            stranica[br_temena - 1] = new Vektor(teme[br_temena - 1], teme[0]);
+            for (int i = 0; i < br_temena; i++)
+            {
+                int kraj;
+                if (i == 0) kraj = br_temena - 1;
+                else kraj = br_temena;
+                for (int j = i + 2; j < kraj; j++)
+                {
+                    if (Vektor.seku_se(stranica[i], stranica[j]))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }

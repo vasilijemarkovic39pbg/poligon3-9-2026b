@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace poligon_3_9b_2026b
+namespace poligon3_9_2026b
 {
     internal class Tacka
     {
+        // ovo sam upravo dodao. Ja.
         public double x, y;
         public Tacka()
         {
@@ -21,6 +22,10 @@ namespace poligon_3_9b_2026b
         public double d()
         {
             return Math.Sqrt(x * x + y * y);
+        }
+        public static bool jednake(Tacka A, Tacka B)
+        {
+            return (A.x == B.x) && (A.y == B.y);
         }
     }
 }
