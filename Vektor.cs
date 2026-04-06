@@ -1,7 +1,7 @@
-﻿using poligon_3_9b_2026b;
-using poligon3_9_2026b;
+﻿using poligon3_9_2026b;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +31,7 @@ namespace poligon3_9_2026b
         {
             Tacka aC = a.Centriraj();
             Tacka bC = b.Centriraj();
+            return aC.x * bC.y - bC.x * aC.y;
             return aC.x * bC.y - bC.x * aC.y;
         }
         public double duzina()

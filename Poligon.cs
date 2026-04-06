@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using poligon_3_9b_2026b;
 using poligon3_9_2026b;
 
 namespace poligon3_9_2026b
@@ -110,6 +109,32 @@ namespace poligon3_9_2026b
                 }
             }
             return true;
+        }
+        public bool konveksan()
+        {
+            int brojac = 0;
+            for (int i = 0; i < br_temena; i++)
+            {
+                Vektor prvi = new Vektor(teme[i], teme[(i + 1) % br_temena]);
+                Vektor drugi = new Vektor(teme[(i + 1) % br_temena], teme[(i + 2) % br_temena]);
+                if (Vektor.VP(prvi, drugi) > 0) brojac++;
+            }
+            if ((brojac == br_temena) || (brojac == 0)) return true;
+            return false;
+        }
+        public double povrsina()
+        {
+            double plus = 0, minus = 0;
+            for (int i=0; i < br_temena; i++)
+            {
+                plus += teme[i].x * teme[(i + 1) % br_temena].y;
+                minus += teme[i].y * teme[(i + 1) % br_temena].x;
+            }
+            return Math.Abs(plus-minus)/2;
+        }
+        public bool tacka_u(Tacka T)
+        {
+            return false;
         }
     }
 }
